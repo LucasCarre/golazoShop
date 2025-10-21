@@ -1,12 +1,15 @@
+import CartWidget from "./CartWidget"
+
 function Navbar (){
     return(
-        <nav>
-            <div><h1>GOLAZO SHOP</h1></div>
-            <ul>
-                <li>Camisetas</li>
-                <li>Shorts</li>
-                <li>Chombas</li>
+        <nav className="navbar">
+            <h1>GOLAZO SHOP</h1>
+            <ul className="navbar-links">
+                <a>Camisetas</a>
+                <a>Shorts</a>
+                <a>Chombas</a>
             </ul>
+            <CartWidget/>
         </nav>
     )
 }

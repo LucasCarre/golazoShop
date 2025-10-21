@@ -1,20 +1,18 @@
 import './App.css'
 import Button from './components/Button'
 import Counter from './components/Counter'
+import ItemListConteiner from './components/ItemListConteiner'
 import Navbar from './components/NavBar'
 
 
 function App() {
   return (
     <>
-    <div>
       <header>
         <Navbar/>
       </header>
-    </div>
     <section>
-      <Button/>
-      <Counter/>
+      <ItemListConteiner saludo='Bienvenidos a la tienda online de GOLAZO SHOP' slogan='Equipate para vivir tu pasión al máximo.'/>
     </section>
     </>
   )
