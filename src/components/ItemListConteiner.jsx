@@ -1,9 +1,18 @@
-function ItemListConteiner(props){
+import { useState } from "react"
+import { useEffect } from "react"
+import ItemList from "./ItemList"
+
+function ItemListConteiner(){
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch('https://dummyjson.com/products')
+        .then(res => res.json())
+        .then(data => setItems(data.products))
+        }, [])
+    
     return(
-        <div style={{backgroundColor: '#3b3b3bff', border: "1px solid #3b3b3bff", marginTop: '100px',}}>
-            <h2>{props.saludo}</h2>
-            <h3>{props.slogan}</h3>
-        </div>
+        <ItemList items={items} />
+        
     )
 }
 
