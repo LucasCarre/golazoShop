@@ -3,21 +3,19 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from "react-router";
 
 function NavBar({categories}){
     return(
-        <Navbar expand="lg" className="bg-body-tertiary">
+        <Navbar expand="lg" style={{backgroundColor: '#9d00ff', boxShadow: '0 2px 10px rgba(157, 0, 255, 0.5)',}} variant="dark">
             <Container>
-                <Navbar.Brand href="#home">GOLAZO SHOP</Navbar.Brand>
+                <Navbar.Brand as={Link} to={'/'}>GOLAZO SHOP</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#home">Camisetas</Nav.Link>
-                    <Nav.Link href="#link">Shorts</Nav.Link>
-                    <Nav.Link href="#link">Chombas</Nav.Link>
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                     {categories.map(category => (
-                        <NavDropdown.Item href="#">{category}</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to={`/categories/${category}`}>{category}</NavDropdown.Item>
                     ))}
                     </NavDropdown>
                 </Nav>
