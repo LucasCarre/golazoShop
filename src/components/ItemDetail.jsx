@@ -2,16 +2,16 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 
 function ItemDetail ( {item} ){
     return(
-        <Container>
-            <Row>
-                <h2>{item.title}</h2>
-                <Col>
-                <img src={item.thumbnail} />
+        <Container className="mt-5">
+            <Row className="align-items-center">
+                    <h2 className="text-center mb-4">{item.title}</h2>
+                <Col md={6} className="text-center">
+                    <img src={item.thumbnail}/>
                 </Col>
-                <Col>
-                <p>{item.description}</p>
-                <p>$ {item.price}</p>
-                <Button variant='success'>Agregar al Carrito</Button>
+                <Col md={6}>
+                    <p>{item.description}</p>
+                    <p>$ {item.price}</p>
+                    <Button variant='success'>Agregar al Carrito</Button>
                 </Col>
             </Row>
         </Container>
