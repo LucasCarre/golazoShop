@@ -8,17 +8,18 @@ function ItemListConteiner(){
     const {cat} = useParams()
 
     useEffect(() => {
-        if (cat){
-            fetch(`https://dummyjson.com/products/category/${cat}`)
-                .then(res => res.json())
-                .then(data => setItems(data.products));
-        } else {
-            fetch('https://dummyjson.com/products')
-                .then(res => res.json())
-                .then(data => setItems(data.products))
-        }
-        
-        }, [cat])
+        fetch('https://68abd0167a0bbe92cbb8534a.mockapi.io/products')
+            .then(res => res.json())
+            .then(data => {
+                if (cat) {
+                    const filtrados = data.filter(item => item.categoryId == cat);
+                    setItems(filtrados);
+                } else {
+                    setItems(data);
+                }
+            });
+
+    }, [cat])
     
     return(
         <ItemList items={items} />

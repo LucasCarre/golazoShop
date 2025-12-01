@@ -9,7 +9,7 @@ function ItemList ( { items } ) {
     return (
         <Container className='mt-4'>
             <h1 className='text-center mb-4'>
-                {cat ? cat : 'All Products'}
+                Nuestros Productos
             </h1>
             <Row>
                 {items.map(item => <Item item={item} key={item.id} />)}

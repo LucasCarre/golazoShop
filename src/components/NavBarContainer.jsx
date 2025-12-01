@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 function NavBarContainer (){
     const [categories, setCategories] = useState([])
     useEffect(()=>{
-        fetch('https://dummyjson.com/products/category-list')
+        fetch('https://68abd0167a0bbe92cbb8534a.mockapi.io/categories')
         .then(res => res.json())
         .then(data => setCategories(data))
     }, [])

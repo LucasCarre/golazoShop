@@ -7,7 +7,7 @@ function ItemDetailContainer (){
     const { id } = useParams()
     
     useEffect(()=>{
-        fetch(`https://dummyjson.com/products/${id}`)
+        fetch(`https://68abd0167a0bbe92cbb8534a.mockapi.io/products/${id}`)
         .then(res => res.json())
         .then(res => setDetailItem(res)
         );
