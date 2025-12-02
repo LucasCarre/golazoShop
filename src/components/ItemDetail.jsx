@@ -1,4 +1,5 @@
 import { Button, Col, Container, Row } from 'react-bootstrap';
+import ItemCount from './ItemCount';
 
 function ItemDetail ( {item} ){
     return(
@@ -9,9 +10,12 @@ function ItemDetail ( {item} ){
                     <img src={item.img} className="img-fluid" style={{ maxWidth: "400px" }}/>
                 </Col>
                 <Col md={6}>
+                    <p>Stock disponible: {item.stock}</p>
+                    <p>Equipacion: {item.variante}</p>
+                    <p>Temporada: {item.temporada}</p>
                     <p>{item.decripcion}</p>
                     <p>$ {item.precio}</p>
-                    <Button variant='success'>Agregar al Carrito</Button>
+                    <ItemCount item={item}></ItemCount>
                 </Col>
             </Row>
         </Container>

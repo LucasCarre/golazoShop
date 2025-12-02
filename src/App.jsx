@@ -5,6 +5,7 @@ import NavBarContainer from './components/NavBarContainer'
 import { BrowserRouter, Route } from 'react-router';
 import { Routes } from 'react-router';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import CartContainer from './components/CartContainer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<ItemListConteiner/>}/>
         <Route path='/item/:id' element={<ItemDetailContainer/>}/>
         <Route path='/categories/:cat' element={<ItemListConteiner/>}/>
+        <Route path='/cart' element={<CartContainer/>}/>
       </Routes>
     </BrowserRouter>
   )

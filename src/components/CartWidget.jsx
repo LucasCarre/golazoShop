@@ -1,25 +1,19 @@
-import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import { useNavigate } from 'react-router';
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-    '& .MuiBadge-badge': {
-        right: -3,
-        border: `${(theme.vars ?? theme).palette.background.paper}`,
-        padding: '0 4px',
-    },
-}));
 
 function CartWidget (){
+    const navigate = useNavigate()
+    const {getCartQuantity} = useContext(CartContext)
+    const quantity = getCartQuantity()
+
     return(
-        <>
-        <IconButton aria-label="cart">
-            <StyledBadge badgeContent={4} color="primary">
-                <ShoppingCartIcon />
-            </StyledBadge>
-        </IconButton>
-        </>
+        <button type='button' className='btn btn-primary position-relative' onClick={()=> navigate('/cart')}>
+            Cart
+            <span className='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>{quantity}
+            </span>
+        </button>
     )
 }
 
