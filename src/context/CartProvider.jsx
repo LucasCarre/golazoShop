@@ -8,8 +8,10 @@ function CartProvider ( { children } ){
 
     const addToCart = product => setCart([ ...cart, product])
 
+    const cleanCart = () => setCart([])
+
     return(
-        <CartContext.Provider value={{getCartQuantity, addToCart, cart}}>
+        <CartContext.Provider value={{getCartQuantity, addToCart, cart, cleanCart}}>
             {children}
         </CartContext.Provider>
     )

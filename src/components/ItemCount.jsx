@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap"
 import { CartContext } from "../context/CartContext"
 
 function ItemCount ({ item }){
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(1)
     const { addToCart } = useContext(CartContext)
     const handelAdd = ()=>{
         setCounter(counter + 1)
