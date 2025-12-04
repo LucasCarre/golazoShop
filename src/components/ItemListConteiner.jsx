@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import ItemList from "./ItemList"
 import { useParams } from "react-router";
 import { CartContext } from "../context/CartContext";
+import { getProducts, getProductsByCategory } from "./firebase/db";
 
 function ItemListConteiner(){
     const [items, setItems] = useState([]);
@@ -12,17 +13,7 @@ function ItemListConteiner(){
     console.log(context)
 
     useEffect(() => {
-        fetch('https://68abd0167a0bbe92cbb8534a.mockapi.io/products')
-            .then(res => res.json())
-            .then(data => {
-                if (cat) {
-                    const filtrados = data.filter(item => item.categoryId == cat);
-                    setItems(filtrados);
-                } else {
-                    setItems(data);
-                }
-            });
-
+        cat ? getProductsByCategory(cat, setItems) : getProducts(setItems)
     }, [cat])
     
     return(

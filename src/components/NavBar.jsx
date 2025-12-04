@@ -15,7 +15,9 @@ function NavBar({categories}){
                 <Nav className="me-auto">
                     <NavDropdown title="Categories" id="basic-nav-dropdown">
                     {categories.map(category => (
-                        <NavDropdown.Item key={category.id} as={Link} to={`/categories/${category.id}`}>{category.categoryName}</NavDropdown.Item>
+                        <NavDropdown.Item key={category} as={Link} to={`/categories/${category}`}>
+                            {category}
+                        </NavDropdown.Item>
                     ))}
                     </NavDropdown>
                 </Nav>

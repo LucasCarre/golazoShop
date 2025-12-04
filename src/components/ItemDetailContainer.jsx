@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import ItemDetail from "./ItemDetail";
+import { getSingleProduct } from "./firebase/db";
 
 function ItemDetailContainer (){
     const [detailItem, setDetailItem] = useState([])
     const { id } = useParams()
     
     useEffect(()=>{
-        fetch(`https://68abd0167a0bbe92cbb8534a.mockapi.io/products/${id}`)
-        .then(res => res.json())
-        .then(res => setDetailItem(res)
-        );
+        getSingleProduct(id, setDetailItem)
     }, [id])
     return(
         <ItemDetail item={detailItem}/>

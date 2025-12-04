@@ -2,6 +2,7 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 import ItemCount from './ItemCount';
 
 function ItemDetail ( {item} ){
+    console.log(item)
     return(
         <Container className="mt-5">
             <Row className="align-items-center">
