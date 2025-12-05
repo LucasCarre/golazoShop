@@ -4,12 +4,15 @@ import Form from 'react-bootstrap/Form'
 import { CartContext } from '../context/CartContext'
 import { createOrder } from './firebase/db'
 import { serverTimestamp } from 'firebase/firestore'
+import { useNavigate } from 'react-router'
+import toast from 'react-hot-toast'
 
 
 function Checkout() {
-    const {getTotalPrice, cart} = useContext(CartContext)
+    const {getTotalPrice, cart, cleanCart} = useContext(CartContext)
+    const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const form = e.target
@@ -23,7 +26,15 @@ function Checkout() {
             fecha: serverTimestamp()
         }
 
-        createOrder(order)
+        const orderId = await createOrder(order)
+
+        if (orderId){
+            toast.success(`el id de tu orden es: ${orderId}`)
+            cleanCart()
+            navigate('/')
+        } else {
+            toast.error('Tu orden no pudo generarse')
+        }
     }
     
     return (
