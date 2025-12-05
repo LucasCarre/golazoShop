@@ -1,16 +1,149 @@
-# React + Vite
+🛒 Golazo Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda online de camisetas deportivas — Proyecto Final React
 
-Currently, two official plugins are available:
+Golazo Shop es una aplicación web desarrollada en React que permite visualizar productos, filtrar por categorías, gestionar un carrito de compras y finalizar una orden almacenada en Firebase Firestore.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Este proyecto fue realizado como entrega final del curso de React.
 
-## React Compiler
+🚀 Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+React.js
 
-## Expanding the ESLint configuration
+Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+React Router
+
+React Bootstrap
+
+Firebase / Firestore
+
+Context API
+
+JavaScript (ES6+)
+
+Bootstrap Icons
+
+📦 Funcionalidades principales
+🧭 Navegación
+
+Barra de navegación con lista dinámica de categorías obtenidas desde Firestore.
+
+Enlaces a:
+
+Inicio
+
+Categorías
+
+Carrito
+
+🛍️ Productos
+
+Lista de productos traídos desde Firestore.
+
+Vista de detalle de cada producto.
+
+Filtrado por categorías.
+
+🛒 Carrito de compras
+
+Agregar productos al carrito.
+
+Modificar cantidades.
+
+Eliminar productos individualmente.
+
+Vaciar carrito completo.
+
+Cálculo automático del total.
+
+Persistencia en localStorage.
+
+🧾 Finalización de compra (Checkout)
+
+Formulario para datos del comprador.
+
+Generación de orden con:
+
+Datos del cliente,
+
+Productos comprados,
+
+Total,
+
+Fecha (serverTimestamp()).
+
+Envío de la orden a Firestore.
+
+📁 Estructura del proyecto
+src/
+  components/
+    NavBar/
+    ItemListContainer/
+    ItemDetailContainer/
+    Checkout/
+    Cart/
+    CartWidget/
+  context/
+    CartContext.jsx
+  firebase/
+    config.js
+    db.js
+  App.jsx
+  main.jsx
+
+🔥 Firebase
+
+El proyecto utiliza Firestore para:
+
+Obtener productos
+
+Obtener categorías
+
+Filtrar productos por categoría
+
+Obtener un producto individual
+
+Crear órdenes de compra
+
+Asegurate de tener configurados en tu Firestore:
+
+Colección: products
+
+Colección: categories
+
+Colección: orders
+
+Y habilitar reglas de lectura/escritura para desarrollo:
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
+▶️ Cómo ejecutar el proyecto
+1️⃣ Instalar dependencias
+npm install
+
+2️⃣ Ejecutar en modo desarrollo
+npm run dev
+
+3️⃣ Abrir en el navegador
+
+Vite mostrará una URL similar a:
+
+http://localhost:5173/
+
+📸 Capturas del proyecto
+
+(Opcional — agregá imágenes si querés)
+
+👨‍💻 Autor
+
+Lucas Carré
+Proyecto final del curso React JS — Coderhouse
+2025
