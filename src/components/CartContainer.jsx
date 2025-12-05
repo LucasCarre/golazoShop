@@ -3,9 +3,11 @@ import { CartContext } from "../context/CartContext"
 import { Button, ListGroup, ListGroupItem } from "react-bootstrap"
 import EmptyCart from "./EmptyCart"
 import Image from 'react-bootstrap/Image';
+import { useNavigate } from "react-router";
 
 function CartContainer(){
     const {cart, cleanCart} = useContext(CartContext)
+    const navigate = useNavigate()
     
     if (cart.length < 1){
         return(
@@ -26,7 +28,7 @@ function CartContainer(){
                 ))}
             </ListGroup>
             <Button className="mt-5 w-50" variant="danger" onClick={()=>cleanCart()}>Vaciar Carrito</Button>
-            <Button className="mt-3 w-50" variant="success">Finalizar Compra</Button>
+            <Button className="mt-3 w-50" variant="success" onClick={()=>navigate('/checkout')}>Finalizar Compra</Button>
             
         </div>
     )
