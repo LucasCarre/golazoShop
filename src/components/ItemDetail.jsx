@@ -14,8 +14,8 @@ function ItemDetail ( {item} ){
                     <p>Stock disponible: {item.stock}</p>
                     <p>Equipacion: {item.variante}</p>
                     <p>Temporada: {item.temporada}</p>
-                    <p>{item.decripcion}</p>
-                    <p>$ {item.precio}</p>
+                    <p>Descripcion: {item.descripcion}</p>
+                    <p>Precio: ${item.precio}</p>
                     <ItemCount item={item}></ItemCount>
                 </Col>
             </Row>
